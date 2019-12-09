@@ -31,7 +31,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    void loadTextFile();
+//    void loadTextFile();
 };
 
 #endif // MAINWINDOW_H

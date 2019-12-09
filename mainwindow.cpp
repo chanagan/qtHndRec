@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadTextFile();
+//    loadTextFile();
 }
 
 MainWindow::~MainWindow()
@@ -38,9 +38,15 @@ void MainWindow::on_actionLoad_Inventory_triggered()
 ////    ui->textEdit->find(searchString, QTextDocument::FindWholeWords);
 //}
 
+/*
 void MainWindow::loadTextFile()
 {
+	QMessageBox msgBox;
+	msgBox.setText("loadTextFile: ");
+	msgBox.exec();
+
 //    QFile inputFile("/inv_latest_A.txt");
+
     QFile inputFile(":/input.txt");
     inputFile.open(QIODevice::ReadOnly);
 
@@ -54,7 +60,7 @@ void MainWindow::loadTextFile()
 
 
 }
-
+*/
 void MainWindow::on_actionOpen_triggered()
 {
     QMessageBox msgBox;
