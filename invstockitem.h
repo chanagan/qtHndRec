@@ -4,6 +4,8 @@
 
 class InvStockItem
 {
+    size_t nsn_idx;
+
 public:
     InvStockItem();
 };

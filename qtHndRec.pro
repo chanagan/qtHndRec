@@ -26,10 +26,14 @@ CONFIG += c++14
 CONFIG+=sdk_no_version_check
 
 SOURCES += \
+        inventorydocument.cpp \
+        invstockitem.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        inventorydocument.h \
+        invstockitem.h \
         mainwindow.h
 
 FORMS += \
