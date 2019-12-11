@@ -24,19 +24,23 @@ void MainWindow::on_actionLoad_Inventory_triggered()
 {
     QMessageBox msgBox;
     QString fileName;
+    QFileDialog dialog(this);
 
-    fileName = QFileDialog::getOpenFileName(this,
-                                            tr("Open Inventory"), ":/.", tr("Inv Files (*.txt)"));
-    msgBox.setText("This is the load inventory item: "+ fileName);
+    dialog.setNameFilter(tr("Inv Files (*.txt)"));
+    if (dialog.exec()) {
+        fileName = dialog.getOpenFileName();
+//        fileName = QFileDialog::getOpenFileName(this,
+//                                                tr("Open Inventory"), ":/.", tr("Inv Files (*.txt)"));
+        msgBox.setText("This is the load inventory item: "+ fileName);
+    } else {
+        msgBox.setText("No file selected");
+    }
     msgBox.exec();
+
+
 }
 
 
-//void MainWindow::on_findButton_clicked()
-//{
-////    QString searchString = ui->lineEdit->text();
-////    ui->textEdit->find(searchString, QTextDocument::FindWholeWords);
-//}
 
 /*
 void MainWindow::loadTextFile()
