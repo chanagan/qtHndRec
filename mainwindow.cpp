@@ -24,20 +24,18 @@ void MainWindow::on_actionLoad_Inventory_triggered()
 {
     QMessageBox msgBox;
     QString fileName;
-    QFileDialog dialog(this);
 
-    dialog.setNameFilter(tr("Inv Files (*.txt)"));
-    if (dialog.exec()) {
-        fileName = dialog.getOpenFileName();
-//        fileName = QFileDialog::getOpenFileName(this,
-//                                                tr("Open Inventory"), ":/.", tr("Inv Files (*.txt)"));
-        msgBox.setText("This is the load inventory item: "+ fileName);
-    } else {
+    msgBox.setText("No file selected");
+    fileName = QFileDialog::getOpenFileName(this,
+                                            tr("Open Inventory"), ":/.", tr("Inv Files (*.txt)"));
+    if (fileName.isEmpty())
+    {
         msgBox.setText("No file selected");
+        msgBox.exec();
+        return;
     }
+    msgBox.setText("This is the load inventory item: "+ fileName);
     msgBox.exec();
-
-
 }
 
 
