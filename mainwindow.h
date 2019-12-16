@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "inventorydocument.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -26,6 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    InventoryDocument *inventoryDocument;
 //    void loadTextFile();
 };
 

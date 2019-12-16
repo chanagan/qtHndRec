@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,8 +35,10 @@ void MainWindow::on_actionLoad_Inventory_triggered()
         msgBox.exec();
         return;
     }
-    msgBox.setText("This is the load inventory item: "+ fileName);
-    msgBox.exec();
+    inventoryDocument = new InventoryDocument();
+    inventoryDocument->LoadInventory(fileName);
+//    msgBox.setText("This is the load inventory item: "+ fileName);
+//    msgBox.exec();
 }
 
 
