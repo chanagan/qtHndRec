@@ -14,6 +14,7 @@ class InventoryDocument
     int numOfLines;
 
     void LoadInventoryDocument();
+    bool lineIsUsed(QString workString);
 
 public:
     InventoryDocument();
