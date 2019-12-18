@@ -49,4 +49,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     .gitignore \
+    inv_latest_A.txt \
     z_inv_edt.txt
