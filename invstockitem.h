@@ -18,6 +18,7 @@ class InvStockItem
 
 public:
     InvStockItem(QString nsnIn, int lineIdx);
+    int getNsnIdx() const;
 };
 
 #endif // INVSTOCKITEM_H

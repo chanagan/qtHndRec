@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include <QMessageBox>
+#include "invstockitem.h"
 
 class InventoryDocument
 {
@@ -14,7 +15,11 @@ class InventoryDocument
     int numOfLines;
 
     void LoadInventoryDocument();
+    void LoadInventoryStock();
+
     bool lineIsUsed(QString workString);
+
+    QVector<InvStockItem *> nsnList;
 
 public:
     InventoryDocument();

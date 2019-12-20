@@ -1,6 +1,11 @@
 #include "invstockitem.h"
 
 
+int InvStockItem::getNsnIdx() const
+{
+    return nsnIdx;
+}
+
 InvStockItem::InvStockItem(QString nsnIn, int linIndex)
 {
 

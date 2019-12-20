@@ -1,5 +1,4 @@
 #include "inventorydocument.h"
-#include "invstockitem.h"
 
 InventoryDocument::InventoryDocument()
 {
@@ -12,6 +11,7 @@ void InventoryDocument::LoadInventory(QString currentPath)
 
     setCurrentDocPath(currentPath);
     LoadInventoryDocument();
+    LoadInventoryStock();
 }
 
 void InventoryDocument::LoadInventoryDocument()
@@ -49,6 +49,7 @@ void InventoryDocument::LoadInventoryDocument()
                 msgBox.setText("Have record: " + line);
                 invStockItem = new InvStockItem(lineFields[1], lineIndex);
                 //TODO: make array of stock items
+                nsnList.append(invStockItem);
 //                msgBox.exec();
 
             }
@@ -61,6 +62,30 @@ void InventoryDocument::LoadInventoryDocument()
 
     msgBox.setText("This is the load inventory item: "+ getCurrentDocPath());
     msgBox.exec();
+}
+
+void InventoryDocument::LoadInventoryStock()
+{
+    bool itemDone;
+    int nsnCount = nsnList.count();
+    int fldCountReq = 5;
+
+    int lastItemHighLine = 0;
+    InvStockItem* tmpStockItem;
+    QString tmpLine;
+    QStringList lineFields;
+
+    // loop through all the stock items (NSNs)
+    for (int i = 0; i < nsnCount; i++) {
+        int fldCount = 1;
+        int linesIndex;
+
+        tmpStockItem = nsnList[i];
+        linesIndex = tmpStockItem->getNsnIdx();
+        tmpLine = allInventoryLines->at(linesIndex);
+
+        itemDone = false;
+    }
 }
 
 bool InventoryDocument::lineIsUsed(QString workString)
