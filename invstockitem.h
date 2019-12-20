@@ -5,13 +5,19 @@
 
 class InvStockItem
 {
-    bool hasSerNums;
-    int nsn_idx;
-    int data_first_line;
-    int data_line_count;
+    bool hasSerialNums;
+    int nsnIdx;
+    int dataFirstLine;
+    int dataLineCount;
+
+    QString lin;
+    QString mpo;
+    QString nomen;
+    QString quantity;
+    QString nsn;
 
 public:
-    InvStockItem(QString nsn_in, int lin_idx);
+    InvStockItem(QString nsnIn, int lineIdx);
 };
 
 #endif // INVSTOCKITEM_H

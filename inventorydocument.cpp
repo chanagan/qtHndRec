@@ -1,4 +1,5 @@
 #include "inventorydocument.h"
+#include "invstockitem.h"
 
 InventoryDocument::InventoryDocument()
 {
@@ -15,6 +16,9 @@ void InventoryDocument::LoadInventory(QString currentPath)
 
 void InventoryDocument::LoadInventoryDocument()
 {
+    InvStockItem *invStockItem;
+    int lineIndex = 0;
+
     QString fileName = getCurrentDocPath();
     QFile inputFile(fileName);
     QStringList lineFields;
@@ -43,10 +47,13 @@ void InventoryDocument::LoadInventoryDocument()
             }
             if (lineFields[0] == "(MATNR)") {
                 msgBox.setText("Have record: " + line);
+                invStockItem = new InvStockItem(lineFields[1], lineIndex);
+                //TODO: make array of stock items
 //                msgBox.exec();
 
             }
             allInventoryLines->append(line);
+            lineIndex++;
         }
         inputFile.close();
         setNumOfLines(allInventoryLines->size());
