@@ -16,6 +16,9 @@ class InventoryDocument
 
     void LoadInventoryDocument();
     void LoadInventoryStock();
+    void LoadInventorySerials();
+
+    int FindStockItem(int lineNum);
 
     bool lineIsUsed(QString workString);
 

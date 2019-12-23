@@ -29,12 +29,14 @@ SOURCES += \
         inventorydocument.cpp \
         invstockitem.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        sqlite3.c
 
 HEADERS += \
         inventorydocument.h \
         invstockitem.h \
-        mainwindow.h
+        mainwindow.h \
+        sqlite3.h
 
 FORMS += \
         mainwindow.ui
