@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -25,18 +26,22 @@ void MainWindow::on_actionLoad_Inventory_triggered()
     QMessageBox msgBox;
     QString fileName;
 
+    msgBox.setText("No file selected");
     fileName = QFileDialog::getOpenFileName(this,
                                             tr("Open Inventory"), ":/.", tr("Inv Files (*.txt)"));
-    msgBox.setText("This is the load inventory item: "+ fileName);
-    msgBox.exec();
+    if (fileName.isEmpty())
+    {
+        msgBox.setText("No file selected");
+        msgBox.exec();
+        return;
+    }
+    inventoryDocument = new InventoryDocument();
+    inventoryDocument->LoadInventory(fileName);
+//    msgBox.setText("This is the load inventory item: "+ fileName);
+//    msgBox.exec();
 }
 
 
-//void MainWindow::on_findButton_clicked()
-//{
-////    QString searchString = ui->lineEdit->text();
-////    ui->textEdit->find(searchString, QTextDocument::FindWholeWords);
-//}
 
 /*
 void MainWindow::loadTextFile()

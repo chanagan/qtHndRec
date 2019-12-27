@@ -26,11 +26,17 @@ CONFIG += c++14
 CONFIG+=sdk_no_version_check
 
 SOURCES += \
+        inventorydocument.cpp \
+        invstockitem.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        sqlite3.c
 
 HEADERS += \
-        mainwindow.h
+        inventorydocument.h \
+        invstockitem.h \
+        mainwindow.h \
+        sqlite3.h
 
 FORMS += \
         mainwindow.ui
@@ -45,4 +51,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     .gitignore \
+    inv_latest_A.txt \
     z_inv_edt.txt
