@@ -26,6 +26,7 @@ CONFIG += c++14
 CONFIG+=sdk_no_version_check
 
 SOURCES += \
+        getstartedwidget.cpp \
         inventorydocument.cpp \
         invstockitem.cpp \
         main.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
         sqlite3.c
 
 HEADERS += \
+        getstartedwidget.h \
         inventorydocument.h \
         invstockitem.h \
         mainwindow.h \
@@ -53,3 +55,6 @@ DISTFILES += \
     .gitignore \
     inv_latest_A.txt \
     z_inv_edt.txt
+
+RESOURCES += \
+    Images.qrc

@@ -9,16 +9,31 @@
 
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    QMainWindow(parent)
+//  ,
+//    ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+//    ui->setupUi(this);
 //    loadTextFile();
+    setWindowTitle("Hand Receipt Manager");
+    setWindowIcon(QIcon(":images/mainIcon.png"));
+
+    initUi();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+//    delete ui;
+}
+
+void MainWindow::initUi()
+{
+    getStartedWidget = new GetStartedWidget;
+
+    mainWidget = new QStackedWidget;
+    mainWidget->addWidget(getStartedWidget);
+
+    setCentralWidget(mainWidget);
 }
 
 void MainWindow::on_actionLoad_Inventory_triggered()
