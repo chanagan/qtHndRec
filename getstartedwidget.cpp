@@ -1,15 +1,17 @@
 #include <QStandardPaths>
 #include <QSettings>
+
 #include "getstartedwidget.h"
 
 GetStartedWidget::GetStartedWidget(QWidget *parent) : QWidget(parent)
 {
     QString stdPath;
-    QSettings settings("rechkw","Inventory");
-    settings.setValue("stdPath", stdPath);
-    layout = new QVBoxLayout;
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope,"rechkw","Inventory");
+   layout = new QVBoxLayout;
 
     stdPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    settings.setValue("stdPath", stdPath);
+
     labelLayout = new QHBoxLayout;
 
     imgLabel = new QLabel;
@@ -33,6 +35,7 @@ GetStartedWidget::GetStartedWidget(QWidget *parent) : QWidget(parent)
     spacer = new QSpacerItem(0, 50, QSizePolicy::Fixed, QSizePolicy::Fixed);
     layout->addSpacerItem(spacer);
 
+    QStringList tmpString = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
     newButton = new QCommandLinkButton(tr("Create new project"));
     newButton->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
     layout->addWidget(newButton);

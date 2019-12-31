@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/hrh_inventory.sqlite3</file>
+    </qresource>
+</RCC>

@@ -57,4 +57,5 @@ DISTFILES += \
     z_inv_edt.txt
 
 RESOURCES += \
-    Images.qrc
+    Images.qrc \
+    data.qrc
